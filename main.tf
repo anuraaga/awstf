@@ -78,7 +78,7 @@ module "ec2_profile" {
 }
 
 resource "aws_ecs_capacity_provider" "prov1" {
-  name = "${local.name}.prov1"
+  name = "${local.name}-prov1"
 
   auto_scaling_group_provider {
     auto_scaling_group_arn = module.asg.autoscaling_group_arn
@@ -266,7 +266,7 @@ resource "aws_ecs_task_definition" "ecs-cloudwatch-xray" {
   ]
 
   cpu = 1024
-  memory = 1024
+  memory = 2048
 
   container_definitions = <<EOF
 [
@@ -395,7 +395,7 @@ resource "aws_ecs_task_definition" "ecs-amp-xray" {
   ]
 
   cpu = 1024
-  memory = 1024
+  memory = 2048
 
   container_definitions = <<EOF
 [
