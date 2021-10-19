@@ -427,7 +427,7 @@ resource "aws_ecs_task_definition" "ecs-amp-xray" {
     "memory": 128,
     "command": ["--config", "/etc/ecs/ecs-amp-xray.yaml"],
     "environment": [
-      { "name": "AWS_PROMETHEUS_ENDPOINT", "value": "${aws_prometheus_workspace.test.prometheus_endpoint}" }
+      { "name": "AWS_PROMETHEUS_ENDPOINT", "value": "${aws_prometheus_workspace.test.prometheus_endpoint}api/v1/remote_write" }
     ],
     "portMappings": [{
       "containerPort": 4317
