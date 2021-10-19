@@ -212,6 +212,7 @@ data "aws_iam_policy_document" "ecs_assume_role" {
 data "aws_iam_policy_document" "task_policy" {
   statement {
     actions = [
+      "aps:RemoteWrite",
       "cloudwatch:ListMetrics",
       "logs:PutLogEvents",
       "logs:CreateLogGroup",
