@@ -296,3 +296,8 @@ module "xray" {
   ecs_execution_role_arn = aws_iam_role.ecs_task_execution_role.arn
   ecs_task_role_arn = aws_iam_role.task_role.arn
 }
+
+resource "aws_ecrpublic_repository" "aws-otel-collector-test" {
+  repository_name = "aws-otel-collector-test"
+  provider = aws.us_east_1
+}

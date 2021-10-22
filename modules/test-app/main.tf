@@ -66,7 +66,8 @@ resource "aws_ecs_task_definition" "test" {
     }],
     "environment": [
       { "name": "LISTEN_ADDRESS", "value": "0.0.0.0:8080" },
-      { "name": "OTEL_METRICS_EXPORTER", "value": "otlp" }
+      { "name": "OTEL_METRICS_EXPORTER", "value": "otlp" },
+      { "name": "VERSION", "value": "3" }
     ],
     "logConfiguration": {
       "logDriver": "awslogs",
@@ -79,7 +80,7 @@ resource "aws_ecs_task_definition" "test" {
   },
   {
     "name": "otel",
-    "image": "public.ecr.aws/o1b1b5c9/otel-collector-ecs",
+    "image": "public.ecr.aws/o2z1k4j2/aws-otel-collector-test",
     "cpu": 55,
     "memory": 128,
     "command": ["--config", "/etc/ecs/ecs-${var.name}.yaml"],
